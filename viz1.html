@@ -2,6 +2,120 @@
 layout: articles
 title: Graph
 ---
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="assets/tab1_network_site/tab1_network.css"/>
+<link rel="stylesheet" href="assets/tab1_network_site/lib/jquery-ui.css">
+<link rel="stylesheet" href="assets/tab1_network_site/lib/jquery.dataTables.min.css">
 
-<img src="assets/images/Screenshot 2022-05-06 at 16.02.15.png">
-<p>Our graph is still under construction if you want to visualise it dynamically please have a look <a href="https://github.com/com-480-data-visualization/datavis-project-2022-plot-twist/tree/main/tab1_network_site">here</a> and run it locally. </p>
+<body>
+
+    <svg width="1485" height="690">
+      <text width="13.89" height="13.89" x="218" y="615">Year:</text>
+    </svg>
+
+
+    <div id="WRank">
+
+    <p>
+      <label for="amount-Wrank">Winner Rank range:</label>
+      <input type="text" id="amount-Wrank" readonly style="border:0; color:#F55A00; font-weight:bold;">
+    </p>
+     
+    <div id="slider-range-Wrank"></div>
+
+    </div>
+
+
+    <div id="NodeSize">
+
+    <p>
+      <label for="amount-NodeSize">Node size</label>
+      <br>
+      <input type="text" id="amount-NodeSize" readonly style="border:0; color:#F55A00; font-weight:bold;">
+    </p>
+     
+    <div id="slider-range-NodeSize" style="height:180px;"></div>
+
+   </div>
+   
+
+   <div id="EdgeSize">
+
+   <p>
+     <label for="amount-EdgeSize">Edge size</label>
+     <br>
+     <input type="text" id="amount-EdgeSize" readonly style="border:0; color:#F55A00; font-weight:bold;">
+   </p>
+    
+   <div id="slider-range-EdgeSize" style="height:180px;"></div>
+
+  </div>
+
+
+  <div id="PlayersComparison" style="position:absolute; top:800px">
+    
+  </div>
+
+
+  <div id="dialog" title="Graph tutorial">
+    <p>
+      Graph:
+      <ul>
+        <li>This graph groups all the ATP tennis match disputed since 2008.</li>
+        <li>The nodes of the graph correspond to tennis players. The size of the nodes is proportional to the number of matches the player has played.</li>
+        <li>The link between two players groups all the matches that the two players have played together in the given year. The thickness of the links between the players is proportional to the number of matches.</li>
+      </ul>
+    </p>
+    <p>
+      Selection:
+      <ul>
+        <li>The "Node size" and "Edge size" sliders allow you to set the minimum and maximum size of nodes and links respectively.</li>
+        <li>The "Year" slider allows you to select the matches of a particular year. The size of the nodes and links is adapted for each year.</li>
+        <li>The "Winner Rank range" slider allows you to select only those links between players for which the winner's rank for each match is within the selected range. This deletes only the unselected links and does not vary the size of the nodes and links.</li>
+      </ul>
+    </p>
+    <p>
+      Information:
+      <ul>
+        <li>To study a particular node, it can be moved by clicking and holding the mouse on it while moving it. When you release the mouse, the node remains where you placed it. You can then vary the year and/or the Winner Rank range to see how the node evolves. To return the node to its initial position, simply click on it.</li>
+        <li>If you move the mouse over a node, information about the player is displayed: name, nationality, starting year as a pro, weight, height and playing hand.</li>
+        <li>If you click on the link between two players, a table with all the matches between the two players for the given year is displayed. This table contains the following information for each match: year, winner, ATP, location, tournament, series, court, surface, round, ATP entry ranking of the match winner or loser as of the start of the tournament (WRank and LRank), ATP entry points of the match winner or loser as of the start of the tournament (WPts and LPts), number of games won in n-th set by match winner or loser (W1, L1, W2, L2, W3, L3, W4, L4, W5 and L5), number of sets won by match winner or loser (Wsets and Lsets), Comment, bet365 odds of match winner or loser (B365W and B365L).</li>
+      </ul>
+    </p>
+  </div>
+  <button id="opener" style="position: absolute; left: 1500px; top: 30px;">Tutorial</button>
+     
+     
+</body>
+
+
+<script src="assets/tab1_network_site/lib/d3.v4.min.js"></script>
+<script src="assets/tab1_network_site/lib/jquery.min.js"></script>
+<script src="assets/tab1_network_site/lib/jquery-3.6.0.js"></script>
+<script src="assets/tab1_network_site/lib/jquery-ui.js"></script>
+<script src="assets/tab1_network_site/lib/jquery.dataTables.min.js"></script>
+
+<script src="assets/tab1_network_site/tab1_network.js"></script>
+
+<script>
+  $( function() {
+    $( "#dialog" ).dialog({
+      autoOpen: false,
+      show: {
+        effect: "blind",
+        duration: 1000
+      },
+      hide: {
+        effect: "explode",
+        duration: 1000
+      },
+      width: 1300
+    });
+ 
+    $( "#opener" ).on( "click", function() {
+      $( "#dialog" ).dialog( "open" );
+    });
+  } );
+</script>
+
+
