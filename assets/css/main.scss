@@ -2,20 +2,40 @@
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
 
+@font-face {
+  font-family: "Metropolis-Regular";
+  src: url("metropolis/Metropolis-Regular.otf");
+}
+@font-face {
+  font-family: "Metropolis";
+  src: url("metropolis/Metropolis-Bold.otf");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Metropolis-SemiBold";
+  src: url("metropolis/Metropolis-SemiBold.otf");
+  font-weight: bold;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Metropolis";
+  src: url("metropolis/Metropolis-RegularItalic.ttf");
+  font-style: italic;
+}
+
+
 .button-2 {
   background-color: rgba(51, 51, 51, 0.05);
   border-radius: 8px;
-  border-width: 0;
   color: #333333;
   cursor: pointer;
   display: inline-block;
-  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-family: Metropolis,"Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 500;
-  line-height: 20px;
+  line-height: 25px;
   list-style: none;
   margin: 0;
-  padding: 10px 12px;
+  padding: 10px 22px;
   text-align: center;
   transition: all 200ms;
   vertical-align: baseline;
@@ -23,24 +43,43 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  text-transform: uppercase;
 }
 
 .flex-container {
   flex-direction:row;
   display: -webkit-flex;
   display: flex;
-  margin: 50px;
+  margin: 0px;
+  margin-top: 20%;
+  margin-bottom: 20%;
   align-content: center;
   flex-flow: row wrap; 
 }
 
 .flex-item {
-  width: 30%;
+  width: 45%;
   order: 1;  
   margin:auto;
   text-align: center;
+  padding: 5px;
 }
 
+.p-index {
+  text-align: justify;
+  font-family: Metropolis-Regular;
+}
+
+.regular {
+  font-family: Metropolis-Regular;
+}
+
+.behind{
+  position: relative;
+  opacity: 0.3;
+  width: 50%;
+  z-index:-1;
+}
 // Default theme colors
 $theme-colors: (
   "coolblack": #090a0b,
