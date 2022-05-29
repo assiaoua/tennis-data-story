@@ -107,8 +107,8 @@ html {
 
     .site-favicon {
       display: inline-block;
-      height: $header-height / 1.5;
-      margin-right: 5px;
+      height: $header-height / 2.6;
+      margin-right: 1px;
     }
   }
 }
@@ -177,7 +177,6 @@ html {
     }
 
     .page-link {
-      display: block;
       padding: 5px 10px;
       color: rgba($header-text-color, 80%);
       margin: 0 25px;
@@ -250,7 +249,7 @@ html {
   @extend %flex-1; /* <-- Keep footer on the bottom */
   -ms-flex: none; /* <-- Fix IE footer issue */
   padding: $spacing-unit * 2 0;
-  padding-top: 72px;
+  padding-top: 5px;
 }
 
 .page-heading {

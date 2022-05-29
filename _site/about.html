@@ -10,7 +10,7 @@
 <title>About | Tennis Data story</title>
 <meta name="generator" content="Jekyll v4.2.2">
 <meta property="og:title" content="About">
-<meta name="author" content="GitHub User">
+<meta name="author" content="Félicie Giraud-Sauveur, Assia Ouanaya, Alexandre Variengien">
 <meta property="og:locale" content="en_US">
 <meta name="description" content="A data story to explore the community of professional tennis players.">
 <meta property="og:description" content="A data story to explore the community of professional tennis players.">
@@ -21,12 +21,14 @@
 <meta name="twitter:card" content="summary">
 <meta property="twitter:title" content="About">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"GitHub User"},"description":"A data story to explore the community of professional tennis players.","headline":"About","url":"http://localhost:4000/tennis-data-story/about.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Félicie Giraud-Sauveur, Assia Ouanaya, Alexandre Variengien"},"description":"A data story to explore the community of professional tennis players.","headline":"About","url":"http://localhost:4000/tennis-data-story/about.html"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="shortcut icon" href="">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="shortcut icon" href="assets/images/icons8-tennis-96%20copy.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
   <link rel="stylesheet" href="/tennis-data-story/assets/css/main.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
   <script src="/tennis-data-story/assets/js/main.js"></script><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/tennis-data-story/feed.xml" title="Tennis Data story">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
@@ -244,12 +246,22 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 
 
+
+
+
+
+
+
+
+
+
+
 <header class="site-header " role="banner">
 
   <div class="wrapper">
     <div class="site-header-inner">
 <span class="site-brand"><a class="site-brand-inner" rel="author" href="/tennis-data-story/">
-  <img class="site-favicon" title="Tennis Data story" src="" onerror="this.style.display='none'">
+  <img class="site-favicon" title="Tennis Data story" src="assets/images/icons8-tennis-96%20copy.png" onerror="this.style.display='none'">
   Tennis Data story
 </a>
 </span><nav class="site-nav">
@@ -263,7 +275,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
           </label>
 
           <div class="trigger">
-<a class="page-link" href="/tennis-data-story/">HOME</a><a class="page-link" href="/tennis-data-story/tab1_network_site/tab1_network.html">GRAPH</a><a class="page-link" href="/tennis-data-story/viz2.html">MAP</a><a class="page-link" href="/tennis-data-story/viz3.html">RANKING</a>
+<a class="page-link" href="/tennis-data-story/">HOME</a><a class="page-link" href="/tennis-data-story/about.html">ABOUT</a><a class="page-link" href="/tennis-data-story/viz1.html">GRAPH</a><a class="page-link" href="/tennis-data-story/viz2.html">MAP</a><a class="page-link" href="/tennis-data-story/viz3.html">RANKING</a>
 
 
 
@@ -428,7 +440,7 @@ function googleTranslateElementInit() {
     var documentElement = document.documentElement;
 
     function storeScrollData() {
-      var y = getScrollPos().y;var scrollStatus = "";
+      var y = getScrollPos().y;documentElement.setAttribute("data-header-transparent", "");var scrollStatus = "";
 
       if (y <= 0) {
         scrollStatus = "top";
@@ -451,6 +463,16 @@ function googleTranslateElementInit() {
   }
   document.addEventListener('DOMContentLoaded', initHeader);
 </script>
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -786,50 +808,42 @@ function googleTranslateElementInit() {
 
       <h2>About</h2>
 <h3>Dataset</h3>
-<p>We chose to work with the ATP Tennis with Betting Odds found on Kaggle.</p>
+<div class="regular">
+    <p>We chose to work with the ATP Tennis with Betting Odds found on Kaggle.</p>
 
-<p>The dataset consists of 36 120 matches summaries. Each line contains:</p>
-<ul>
-    <li>Information about the tournament (name, location, etc...)</li>
-    <li>Information about the match (surface, date, rounds, comment, etc...)</li>
-    <li>Information about the players (winner, loser, nationalities, world ranking, ATP points, etc...)</li>
-    <li>Physical information about the players (playing hand, weights, height, etc...)</li>
-    <li>Betting odds information (odds of match loser and winner from different online platforms)</li>
-</ul>
-
+    <p>The dataset consists of 36'120 matches summaries. Each line contains:</p>
+    <ul>
+        <li>Information about the tournament (name, location, etc...)</li>
+        <li>Information about the match (surface, date, rounds, comment, etc...)</li>
+        <li>Information about the players (winner, loser, nationalities, world ranking, ATP points, etc...)</li>
+        <li>Physical information about the players (playing hand, weights, height, etc...)</li>
+        <li>Betting odds information (odds of match loser and winner from different online platforms)</li>
+    </ul>
+</div>
 <h3>Problematic</h3>
+<div class="regular">
+    <p>Since its creation in the nineteenth century, tennis has kept increasing in popularity to become one of the most played sports, and one of the most mediatized. You cannot ignore the names of the best figures such as Rafael Nadal or Novak Djokovic that compete in the unmissable Grand Slam tournaments: from Roland Garros to Wellington. Nonetheless, the usual picture of tennis shared by the media tends to focus on a tiny subset of both the events and the players. With this visualization, we want to give a holistic image of the community of professional tennis players, its global structure.</p>
+        
+    <p>First, we want to visualize the pattern of matchmaking through tournaments and through the seasons. All the tournaments can be seen as a graph whose nodes are the players and the edges are the tennis matches. We want to visualize the structure of this graph.</p>
+        
+    <p>In addition to the competitions, we would focus on individual players: besides the well-known superstars, what is the usual career of a professional tennis player, what are his characteristics? We want to share the stories of the ones whose names will never appear in any international headlines, while they make up the biggest chunk of the community.
+    Those questions, such as the role of right or left handedness, are the subject of common discussions. Through the use of data visualization, we aim at shedding new light on these topics.</p>
 
-<p>Since its creation in the nineteenth century, tennis has kept increasing in popularity to become one of the most played sports, and one of the most mediatized. You cannot ignore the names of the best figures such as Rafael Nadal or Novak Djokovic that compete in the unmissable Grand Slam tournaments: from Roland Garros to Wellington. Nonetheless, the usual picture of tennis shared by the media tends to focus on a tiny subset of both the events and the players. With this visualization, we want to give a holistic image of the community of professional tennis players, its global structure.</p>
-    
-<p>First, we want to visualize the pattern of matchmaking through tournaments and through the seasons. All the tournaments can be seen as a graph whose nodes are the players and the edges are the tennis matches. We want to visualize the structure of this graph.</p>
-    
-<p>In addition to the competitions, we would focus on individual players: besides the well-known superstars, what is the usual career of a professional tennis player, what are his characteristics? We want to share the stories of the ones whose names will never appear in any international headlines, while they make up the biggest chunk of the community.
-Those questions, such as the role of right or left handedness, are the subject of common discussions. Through the use of data visualization, we aim at shedding new light on these topics.</p>
+    <p>his visualization is intended for the general public, with no particular interest in tennis. Our goal is to show the fascinating patterns that emerge in the data visualization from this field and to share the statistical stories that never appear in newspapers.</p>
+</div>
 
-<p>his visualization is intended for the general public, with no particular interest in tennis. Our goal is to show the fascinating patterns that emerge in the data visualization from this field and to share the statistical stories that never appear in newspapers.</p>
-
+<h3>Team</h3>
+<div>
+    <img src="assets/images/forumind-26.jpg" class="team-photos">
+    <p>Assia Ouanaya</p>
+</div>
 
 
 
     </div>
 
 </article>
-<div class="post-comments">  <div id="gitment_thread"></div>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.css">
-  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.js"></script>
-  <script>
-    var gitment = new Gitment({
-      id: '',
-      owner: 'assiaoua',
-      repo: 'tennis-data-story',
-      oauth: {
-        client_id: '',
-        client_secret: '',
-      },
-    });
-    gitment.render('gitment_thread')
-  </script>
-</div></section>
+</section>
 </div>
 
 
@@ -968,12 +982,10 @@ Those questions, such as the role of right or left handedness, are the subject o
 
   <div class="wrapper">
     <div class="site-footer-inner">
-<div>Unpublished Work <span class="copyleft">©</span> 2017-2022 GitHub User</div>
+<div>Data Visualisation <span class="copyleft">©</span> 2022. <br> Félicie Giraud-Sauveur, Assia Ouanaya, Alexandre Variengien.</div>
       <div>Powered by <a title="Jekyll is a simple, blog-aware, static site
       generator." href="https://jekyllrb.com/">Jekyll</a> &amp; <a title="Yat, yet
       another theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
-      <div class="footer-col rss-subscribe">Subscribe <a href="/tennis-data-story/feed.xml">via RSS</a>
-</div>
     </div>
   </div>
 </footer>

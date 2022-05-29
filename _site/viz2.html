@@ -10,7 +10,7 @@
 <title>Map | Tennis Data story</title>
 <meta name="generator" content="Jekyll v4.2.2">
 <meta property="og:title" content="Map">
-<meta name="author" content="GitHub User">
+<meta name="author" content="Félicie Giraud-Sauveur, Assia Ouanaya, Alexandre Variengien">
 <meta property="og:locale" content="en_US">
 <meta name="description" content="A data story to explore the community of professional tennis players.">
 <meta property="og:description" content="A data story to explore the community of professional tennis players.">
@@ -21,12 +21,14 @@
 <meta name="twitter:card" content="summary">
 <meta property="twitter:title" content="Map">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"GitHub User"},"description":"A data story to explore the community of professional tennis players.","headline":"Map","url":"http://localhost:4000/tennis-data-story/viz2.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Félicie Giraud-Sauveur, Assia Ouanaya, Alexandre Variengien"},"description":"A data story to explore the community of professional tennis players.","headline":"Map","url":"http://localhost:4000/tennis-data-story/viz2.html"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="shortcut icon" href="">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="shortcut icon" href="assets/images/icons8-tennis-96%20copy.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
   <link rel="stylesheet" href="/tennis-data-story/assets/css/main.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
   <script src="/tennis-data-story/assets/js/main.js"></script><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/tennis-data-story/feed.xml" title="Tennis Data story">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
@@ -244,12 +246,22 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 
 
+
+
+
+
+
+
+
+
+
+
 <header class="site-header " role="banner">
 
   <div class="wrapper">
     <div class="site-header-inner">
 <span class="site-brand"><a class="site-brand-inner" rel="author" href="/tennis-data-story/">
-  <img class="site-favicon" title="Tennis Data story" src="" onerror="this.style.display='none'">
+  <img class="site-favicon" title="Tennis Data story" src="assets/images/icons8-tennis-96%20copy.png" onerror="this.style.display='none'">
   Tennis Data story
 </a>
 </span><nav class="site-nav">
@@ -263,7 +275,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
           </label>
 
           <div class="trigger">
-<a class="page-link" href="/tennis-data-story/">HOME</a><a class="page-link" href="/tennis-data-story/tab1_network_site/tab1_network.html">GRAPH</a><a class="page-link" href="/tennis-data-story/viz2.html">MAP</a><a class="page-link" href="/tennis-data-story/viz3.html">RANKING</a>
+<a class="page-link" href="/tennis-data-story/">HOME</a><a class="page-link" href="/tennis-data-story/about.html">ABOUT</a><a class="page-link" href="/tennis-data-story/viz1.html">GRAPH</a><a class="page-link" href="/tennis-data-story/viz2.html">MAP</a><a class="page-link" href="/tennis-data-story/viz3.html">RANKING</a>
 
 
 
@@ -428,7 +440,7 @@ function googleTranslateElementInit() {
     var documentElement = document.documentElement;
 
     function storeScrollData() {
-      var y = getScrollPos().y;var scrollStatus = "";
+      var y = getScrollPos().y;documentElement.setAttribute("data-header-transparent", "");var scrollStatus = "";
 
       if (y <= 0) {
         scrollStatus = "top";
@@ -451,6 +463,16 @@ function googleTranslateElementInit() {
   }
   document.addEventListener('DOMContentLoaded', initHeader);
 </script>
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -868,12 +890,10 @@ d3.json("/mbostock/raw/4090846/world-110m.json", function(error, world) {
 
   <div class="wrapper">
     <div class="site-footer-inner">
-<div>Unpublished Work <span class="copyleft">©</span> 2017-2022 GitHub User</div>
+<div>Data Visualisation <span class="copyleft">©</span> 2022. <br> Félicie Giraud-Sauveur, Assia Ouanaya, Alexandre Variengien.</div>
       <div>Powered by <a title="Jekyll is a simple, blog-aware, static site
       generator." href="https://jekyllrb.com/">Jekyll</a> &amp; <a title="Yat, yet
       another theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
-      <div class="footer-col rss-subscribe">Subscribe <a href="/tennis-data-story/feed.xml">via RSS</a>
-</div>
     </div>
   </div>
 </footer>

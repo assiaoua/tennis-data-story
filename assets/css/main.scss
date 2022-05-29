@@ -51,10 +51,29 @@
   display: -webkit-flex;
   display: flex;
   margin: 0px;
-  margin-top: 20%;
-  margin-bottom: 20%;
+  margin-top: 10%;
+  margin-bottom: 10%;
   align-content: center;
   flex-flow: row wrap; 
+}
+
+.liner {
+  display: flex;
+  align-items: flex-start;
+  text-align: left;
+
+  &:after {
+    content: '';
+    flex-grow: 1;
+    height: 1px;
+    background: #F55A00;
+    min-width: 20px;
+    margin: auto;
+  }
+
+  &:after {
+    margin-left: 20px;
+  }
 }
 
 .flex-item {
@@ -65,6 +84,8 @@
   padding: 5px;
 }
 
+
+
 .p-index {
   text-align: justify;
   font-family: Metropolis-Regular;
@@ -72,6 +93,11 @@
 
 .regular {
   font-family: Metropolis-Regular;
+}
+
+.team-photos{
+  width: auto;
+  height: 300px;
 }
 
 .behind{
