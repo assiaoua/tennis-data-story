@@ -6,6 +6,7 @@
   fill: none;
   stroke: #224559;
   cursor: pointer;
+  opacity: 0.1;
 }
 
 .ticks {
