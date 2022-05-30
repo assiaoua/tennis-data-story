@@ -2,7 +2,7 @@
 layout: articles
 title: Map
 ---
-
+<!--
 <div class="space">
 <iframe width="100%" height="894" frameborder="0"
   src="https://observablehq.com/embed/@avariengien/tennis-players-travel?cells=chart%2Cviewof+t"></iframe>
@@ -10,33 +10,30 @@ title: Map
 <script src="//d3js.org/d3.v3.min.js"></script>
 <script src="//d3js.org/topojson.v1.min.js"></script>
 <script>
+</script>
+-->
+<div id="MainCell" style="height: 70vh; width: 80vw;"></div>
 
-var width = 960,
-    height = 500;
+<script type="module">
 
-var projection = d3.geo.orthographic()
-    .scale(250)
-    .translate([width / 2, height / 2])
-    .clipAngle(90);
+// Load the Observable runtime and inspector.
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
 
-var path = d3.geo.path()
-    .projection(projection);
+// Your notebook, compiled as an ES module.
+import notebook from "https://api.observablehq.com/@avariengien/tennis-tournaments.js?v=3";
 
-var λ = d3.scale.linear()
-    .domain([0, width])
-    .range([-180, 180]);
+// Load the notebook, observing its cells with a default Inspector
+// that simply renders the value of each cell into the provided DOM node.
 
-var φ = d3.scale.linear()
-    .domain([0, height])
-    .range([90, -90]);
 
-var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height);
 
-svg.on("mousemove", function() {
-  var p = d3.mouse(this);
-  projection.rotate([λ(p[0]), φ(p[1])]);
-  svg.selectAll("path").attr("d", path);
+new Runtime().module(notebook, name => {
+  if (name === "MainCell") {
+    return new Inspector(document.querySelector("#MainCell"));
+  }
+  else {
+      return true;
+  }
 });
 </script>
+
