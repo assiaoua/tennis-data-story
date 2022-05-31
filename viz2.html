@@ -12,28 +12,186 @@ title: Map
 <script>
 </script>
 -->
-<div id="MainCell" style="height: 70vh; width: 80vw;"></div>
+
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="assets/tab1_network_site/tab1_network.css"/>
+<link rel="stylesheet" href="assets/tab1_network_site/lib/jquery-ui.css">
+<link rel="stylesheet" href="assets/tab1_network_site/lib/jquery.dataTables.min.css">
+
+
+<h1 style="margin:30px">The Geographical Choreography of Tennis Players </h1>
+
+
+
+<button id="opener" style="position: absolute; right: 15vw; top: 10vh">Tutorial</button>
+
+
+
+
+<div class="MyWrapper">
+    <div id="MapDiv" class="svg-container"></div>
+    <div id="OptionPannel" style="height: auto; width: 90%;"></div>
+</div>
+
+<div id="dialog" title="Map Tutorial">
+
+    <b>The Map</b>
+    <p> This map shows the geographical location of all the ATP matches since 2008. 
+    </p>
+        <b>The Players</b>
+    <p>
+        Each moving circle corresponds to a player, you can follow his journey from cities to cities! Between two matches 
+        its position is interpolated on the globe between the start and end position. 
+        For player that don't play for a long time, they smoothly dispaear in the middle of the journey and 
+        appear again once they are close to the location of their restarting match.
+    </p>
+    <b>The Tournaments</b>
+    <p>
+        The orange circle corresponds to the tournaments that hosts the ATP matches, the bigger its size, the more 
+        matches the tournaments hosted.
+     </p>
+    <p> The map is <i>interactive</i>! Hover the players and the tournaments to discover additionnal information.
+        You can also zoom in to have a more precise look at some regions.
+    </p>
+</div>
+
+<script src="assets/tab1_network_site/lib/jquery.min.js"></script>
+<script src="assets/tab1_network_site/lib/jquery-3.6.0.js"></script>
+<script src="assets/tab1_network_site/lib/jquery-ui.js"></script>
+<script src="assets/tab1_network_site/lib/jquery.dataTables.min.js"></script>
 
 <script type="module">
+    // Load the Observable runtime and inspector.
+    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
 
-// Load the Observable runtime and inspector.
-import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+    // Your notebook, compiled as an ES module.
+    import notebook from "https://api.observablehq.com/@avariengien/tennis-tournaments.js?v=3";
 
-// Your notebook, compiled as an ES module.
-import notebook from "https://api.observablehq.com/@avariengien/tennis-tournaments.js?v=3";
+    // Load the notebook, observing its cells with a default Inspector
+    // that simply renders the value of each cell into the provided DOM node.
 
-// Load the notebook, observing its cells with a default Inspector
-// that simply renders the value of each cell into the provided DOM node.
-
-
-
-new Runtime().module(notebook, name => {
-  if (name === "MainCell") {
-    return new Inspector(document.querySelector("#MainCell"));
-  }
-  else {
-      return true;
-  }
-});
+    new Runtime().module(notebook, name => {
+    console.log(name)
+    if (name === "MainCell") {
+        return new Inspector(document.querySelector("#MapDiv"));
+    }
+    if (name === "OptionPanel") {
+        return new Inspector(document.querySelector("#OptionPannel"));
+    }
+        return true;
+    });
 </script>
 
+
+<script>
+    $( function() {
+      $( "#dialog" ).dialog({
+        autoOpen: false,
+        show: {
+          effect: "blind",
+          duration: 300
+        },
+        hide: {
+          effect: "blind",
+          duration: 300
+        },
+        width: 700
+      });
+   
+      $( "#opener" ).on( "click", function() {
+        $( "#dialog" ).dialog( "open" );
+      });
+    } );
+  </script>
+
+<style>
+
+.ui-widget {
+    font-family: Metropolis;
+}
+
+.page-content {
+    padding: 0; !important
+}
+
+
+    .MyWrapper {
+        display:flex; 
+        justify-content: center; 
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #OptionPannel {
+        display:flex; 
+        justify-content: center; 
+}
+#MapDiv {
+    display:inline-block; 
+}
+text {font-family: Metropolis;
+}
+
+
+    .hover-info {
+    width: 150px;
+    z-index: 10001;
+    position: absolute;
+    padding-left: 4px;
+    background: #fafafa;
+    border: 1px solid black;
+    border-radius: 6px;
+    overflow: visible;
+  }
+  .hover-info-tournament {
+    width: 300px;
+    z-index: 10001;
+    position: absolute;
+    padding-left: 4px;
+    background: #fafafa;
+    border: 1px solid black;
+    border-radius: 6px;
+    overflow: visible;
+  }
+    .pannel {
+    width: 70%;
+    height: 100px;
+    z-index: 10001;
+    padding-left: 4px;
+    background: #fafafa;
+    overflow: visible;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-around; 
+    gap:10px; 
+    align-items: center;
+  }
+    #date {
+    font-weight: bold;
+    font-size: 25px;
+    color: #e95420;
+  }
+ 
+  .wrapper {
+      max-width: none; !important
+  }
+
+  .svg-container {
+    display: inline-block;
+    position: relative;
+    width: 80vw;
+    height: 59vh;
+    overflow: hidden;
+}
+.svg-content {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+
+  </style>
