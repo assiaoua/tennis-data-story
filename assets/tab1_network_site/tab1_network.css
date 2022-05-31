@@ -64,3 +64,16 @@
   stroke-width: 1.25px;
 }
 
+
+.ui-widget {
+  font-family: Metropolis !important; 
+}
+
+.ui-widget b {
+  color: #e95420;
+}
+
+.ui-dialog-title {
+  font-weight: bold;
+  font-size: 20;
+}
