@@ -3,25 +3,57 @@
 ---
 
 @font-face {
-  font-family: "Metropolis-Regular";
-  src: url("metropolis/Metropolis-Regular.otf");
+  font-family: 'League Gothic';
+  src: local('League Gothic Italic'), 
+       local('LeagueGothicItalic'), 
+       url(../fonts/league-gothic/leaguegothic-italic-webfont-webfont.woff2) format('woff2')
+       url(../fonts/league-gothic/leaguegothic-italic-webfont.woff) format('woff');
 }
-@font-face {
+
+
+/* @font-face {
   font-family: "Metropolis";
-  src: url("metropolis/Metropolis-Bold.otf");
-  font-weight: bold;
-}
+  src: url("metropolis/Metropolis-Regular.otf");
+  font-weight: normal;
+  font-style: normal;
+} 
 @font-face {
   font-family: "Metropolis-SemiBold";
   src: url("metropolis/Metropolis-SemiBold.otf");
   font-weight: bold;
   font-style: italic;
-}
+}*/
+
 @font-face {
   font-family: "Metropolis";
-  src: url("metropolis/Metropolis-RegularItalic.ttf");
+  src: url("metropolis/Metropolis-Bold.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: "Metropolis";
+  src: url("metropolis/Metropolis-BoldItalic.otf");
+  font-weight: normal;
   font-style: italic;
 }
+
+@font-face {
+  font-family: "Metropolis";
+  src: url("metropolis/Metropolis-ExtraBold.otf");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Metropolis";
+  src: url("metropolis/Metropolis-ExtraBoldItalic.otf");
+  font-weight: bold;
+  font-style: italic;
+}
+
+
 
 .page-link{
   display: inline-block;

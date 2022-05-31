@@ -59,7 +59,7 @@ title: Graph
 
   <div id="dialog" title="Graph tutorial">
     <p>
-      Graph:
+      <b>Graph</b>
       <ul>
         <li>This graph groups the ATP tennis match disputed since 2008 with the loser's rank below 40 and the winner's rank below 40.</li>
         <li>The nodes of the graph correspond to tennis players. The size of the nodes is proportional to the number of matches the player has played.</li>
@@ -67,7 +67,7 @@ title: Graph
       </ul>
     </p>
     <p>
-      Selection:
+      <b>Selection</b>
       <ul>
         <li>The "Node size" and "Edge size" sliders allow you to set the minimum and maximum size of nodes and links respectively.</li>
         <li>The "Year" slider allows you to select the matches of a particular year. The size of the nodes and links is adapted for each year.</li>
@@ -75,7 +75,7 @@ title: Graph
       </ul>
     </p>
     <p>
-      Information:
+      <b>Information</b>
       <ul>
         <li>To study a particular node, it can be moved by clicking and holding the mouse on it while moving it. When you release the mouse, the node remains where you placed it. You can then vary the year and/or the Winner Rank range to see how the node evolves. To return the node to its initial position, simply click on it.</li>
         <li>If you move the mouse over a node, information about the player is displayed: name, nationality, starting year as a pro, weight, height and playing hand.</li>
@@ -97,6 +97,29 @@ title: Graph
 
 <script src="assets/tab1_network_site/tab1_network.js"></script>
 
+
+<script>
+  $( function() {
+    $( "#dialog" ).dialog({
+      autoOpen: false,
+      show: {
+        effect: "blind",
+        duration: 100
+      },
+      hide: {
+        effect: "blind",
+        duration: 100
+      },
+      width: 1000
+    });
+ 
+    $( "#opener" ).on( "click", function() {
+      $( "#dialog" ).dialog( "open" );
+    });
+  } );
+</script>
+
+<!--
 <script>
   $( function() {
     $( "#dialog" ).dialog({
@@ -117,5 +140,5 @@ title: Graph
     });
   } );
 </script>
-
+-->
 
