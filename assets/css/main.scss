@@ -11,6 +11,7 @@
 }
 
 
+
 /* @font-face {
   font-family: "Metropolis";
   src: url("metropolis/Metropolis-Regular.otf");
@@ -54,6 +55,17 @@
 }
 
 
+
+.page-banner-subheading {
+  position: relative;
+  left: -120px;
+  bottom:10px;
+}
+.page-banner-heading {
+  position: relative;
+  left: -120px;
+  bottom:10px;
+}
 
 .page-link{
   display: inline-block;
@@ -129,11 +141,11 @@ label {
 
 .p-index {
   text-align: justify;
-  font-family: Metropolis-Regular;
+  font-family: Metropolis;
 }
 
 .regular {
-  font-family: Metropolis-Regular;
+  font-family: Metropolis;
 }
 
 .team-photos{
