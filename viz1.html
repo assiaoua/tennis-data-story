@@ -36,19 +36,48 @@ title: Graph
     </ul>
   </p>
 </div>
-<button id="opener" style="position: absolute; left: 70vw; top: 25vh">Tutorial</button>
+<button id="opener" style="position: absolute; left: 50vw; top: 25vh">Tutorial</button>
    
 
-<div class="container">
+<div class="container" style="margin:15px">
+  
   <div class="row">
-    <div class="col-md-12  my-auto">
+    
+    <div class="col">
       <svg width="1000" height="600" id="svg_graph">
-        <text width="13.89" height="13.89">Year:</text>
+        <text width="13.89" height="13.89" x="160" y="551">Year:</text>
       </svg>
-  </div>
+    </div>
+    
+    <div class="col">
+      
+      <div id="NodeSize">
+        <p>
+          <label for="amount-NodeSize">Node size</label>
+          <br>
+          <input type="text" id="amount-NodeSize" readonly style="border:0; color:#F55A00; font-weight:bold;">
+        </p>
+        <div id="slider-range-NodeSize" style="height:180px;"></div>
+      </div>
+
+      <div id="EdgeSize">
+        <p>
+          <label for="amount-EdgeSize">Edge size</label>
+          <br>
+          <input type="text" id="amount-EdgeSize" readonly style="border:0; color:#F55A00; font-weight:bold;">
+        </p>
+        <div id="slider-range-EdgeSize" style="height:180px;"></div>
+      </div> 
+
+    </div>
+  
   </div>
 
   <div class="row">
+    
+    <div class="col-1">
+    </div>
+    
     <div class="col-md-8 my-auto">
       <div id="WRank">
         <p>
@@ -58,36 +87,32 @@ title: Graph
         <div id="slider-range-Wrank"></div>
       </div>
     </div>
-      
-    
-    <div class="col-md-2">
-      <div id="NodeSize">
-        <p>
-          <label for="amount-NodeSize">Node size</label>
-          <br>
-          <input type="text" id="amount-NodeSize" readonly style="border:0; color:#F55A00; font-weight:bold;">
-        </p>
-        <div id="slider-range-NodeSize" style="height:180px;"></div>
+
+    <div class="col">
+    </div>
+
+  </div>
+
+
+  <div id="PlayersComparison" style="width: 1600px">
+    <div class="row">
+      <div class="col">
+      </div>
+      <div class="col" id="text1_pc">
+      </div>
+      <div class="col" id="imagesVS_pc">
+      </div>
+      <div class="col" id="text2_pc">
+      </div>
+      <div class="col">
       </div>
     </div>
-
-    <div class="col-md-2">
-      <div id="EdgeSize">
-        <p>
-          <label for="amount-EdgeSize">Edge size</label>
-          <br>
-          <input type="text" id="amount-EdgeSize" readonly style="border:0; color:#F55A00; font-weight:bold;">
-        </p>
-        <div id="slider-range-EdgeSize" style="height:180px;"></div>
-        </div> 
+    <div id="table_pc">
     </div>
   </div>
 
-<div class="row">
-    <div id="PlayersComparison" style="width: 1600px">
-  </div>
 </div>
-</div>
+
 
 
 <script src="assets/tab1_network_site/lib/d3.v4.min.js"></script>

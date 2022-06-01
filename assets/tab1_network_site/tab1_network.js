@@ -280,34 +280,40 @@ link.transition()
  
 link.on('click',function(mylink){
 
-  var divComparison = document.getElementById("PlayersComparison");
-  divComparison.innerHTML = "";
+  var div_text1_pc = document.getElementById("text1_pc");
+  div_text1_pc.innerHTML = "";
+  var div_imagesVS_pc = document.getElementById("imagesVS_pc");
+  div_imagesVS_pc.innerHTML = "";
+  var div_text2_pc = document.getElementById("text2_pc");
+  div_text2_pc.innerHTML = "";
+  var div_table_pc = document.getElementById("table_pc");
+  div_table_pc.innerHTML = "";
 
   d3.select('#svg_graph').append('svg:image')
-  .attr('xlink:href', 'assets/tab1_network_site/img/dessin_balle-tennis.png')
-  .attr("width", 100)
-  .attr("height", 100)
-  .attr('x', '55px')
-  .attr('y', '540px');
+  .attr('xlink:href', 'assets/tab1_network_site/'+'img/dessin_balle-tennis.png')
+  .attr("width", 50)
+  .attr("height", 50)
+  .attr('x', '0px')
+  .attr('y', '550px');
 
-  d3.select('#PlayersComparison').append('svg')
+  d3.select('#imagesVS_pc').append('svg')
     .attr("width", 500)
     .attr("height", 200)
-    .attr("transform","translate(30,0)");
+    //.attr("transform","translate(30,0)");
 
-  d3.select('#PlayersComparison').select('svg').append('svg:image')
+  d3.select('#imagesVS_pc').select('svg').append('svg:image')
     .attr('xlink:href', 'assets/tab1_network_site/'+mylink.source.img)
     .attr("width", 160)
     .attr("height", 160)
     .attr('x', '0px');
 
-  d3.select('#PlayersComparison').select('svg').append('svg:image')
-    .attr('xlink:href', 'assets/tab1_network_site/'+ mylink.target.img)
+  d3.select('#imagesVS_pc').select('svg').append('svg:image')
+    .attr('xlink:href', 'assets/tab1_network_site/'+mylink.target.img)
     .attr("width", 160)
     .attr("height", 160)
     .attr('x', '325px');
 
-  d3.select('#PlayersComparison').select('svg').append('text')
+  d3.select('#imagesVS_pc').select('svg').append('text')
     .attr("x", 200)
     .attr("y", 100)
     .attr("font-weight", 700)
@@ -316,17 +322,7 @@ link.on('click',function(mylink){
    .style("font-size", "60px")
    .text('VS');
 
-  d3.select('#PlayersComparison').append('svg')
-    .attr("width", 300)
-    .attr("height", 200)
-    .style("float", "left");
-
-  d3.select('#PlayersComparison').append('svg')
-    .attr("width", 920)
-    .attr("height", 200)
-    .style("float", "right");
-
-  d3.select('#PlayersComparison').append('text')
+  d3.select('#text1_pc').append('text')
     .attr("x", 70)
     .attr("y", 100)
     .attr("font-family", "sans-serif")
@@ -334,7 +330,7 @@ link.on('click',function(mylink){
     .style("float", "left")
     .html('<br />' + mylink.source.id + ' (' + mylink.source.flag + ') <br />' + 'year_pro: ' + mylink.source.year_pro + '<br />' + 'weight: ' + mylink.source.weight + ' kg <br />' + 'height: ' + mylink.source.height + ' cm <br />' + mylink.source.hand);
 
-  d3.select('#PlayersComparison').append('text')
+  d3.select('#text2_pc').append('text')
     .attr("x", 750)
     .attr("y", 100)
     .attr("font-family", "sans-serif")
@@ -346,10 +342,10 @@ const matrixinfo = [mylink.Year, mylink.Winner, mylink.ATP, mylink.Location, myl
 const transpose = matrix => matrix.reduce((prev, next) => next.map((item, i) => (prev[i] || []).concat(next[i])), []);
 const transposeinfo = transpose(matrixinfo);
 
-d3.select('#PlayersComparison').append('table')
+d3.select('#table_pc').append('table')
   .attr('id','datatableplayers')
   .attr('class', 'display')
-  .attr('width', '90%');
+  .attr('width', '100%');
 
 $(document).ready(function() {
   $('#datatableplayers').DataTable( {
@@ -391,7 +387,7 @@ $(document).ready(function() {
 
 
  // Update and restart the simulation
- simulation.nodes(nodes).force("charge", d3.forceManyBody().strength(-50)).force("center", d3.forceCenter(width/2, 0.45*height));
+ simulation.nodes(nodes).force("charge", d3.forceManyBody().strength(-30)).force("center", d3.forceCenter(width/2, 0.45*height));
  simulation.force("link").links(links)
  simulation.force("link", d3.forceLink(links)
                 .distance(function(d) {
