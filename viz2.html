@@ -3,21 +3,16 @@ layout: articles
 title: Map
 ---
 <!--
-<div class="space">
-<iframe width="100%" height="894" frameborder="0"
-  src="https://observablehq.com/embed/@avariengien/tennis-players-travel?cells=chart%2Cviewof+t"></iframe>
-</div>
-<script src="//d3js.org/d3.v3.min.js"></script>
-<script src="//d3js.org/topojson.v1.min.js"></script>
-<script>
-</script>
+The visualization presented in this web page was made in an observable notebook. Here,
+I embeded the notebook elements in the website.
+The code source of the visualization can be found at https://observablehq.com/@avariengien/tennis-tournaments
 -->
 
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="stylesheet" href="assets/tab1_network_site/tab1_network.css"/>
 <link rel="stylesheet" href="assets/tab1_network_site/lib/jquery-ui.css">
 <link rel="stylesheet" href="assets/tab1_network_site/lib/jquery.dataTables.min.css">
-
+<link rel="stylesheet" href="assets/css/viz2.css">
 
 <h1 style="margin:64px">The Geographical Choreography of Tennis Players </h1>
 
@@ -83,7 +78,7 @@ title: Map
 </script>
 
 
-<script>
+<script> //for the tutorial pannel
     $( function() {
       $( "#dialog" ).dialog({
         autoOpen: false,
@@ -103,104 +98,3 @@ title: Map
       });
     } );
   </script>
-
-<style>
-
-.ui-widget {
-    font-family: Metropolis;
-}
-
-.ui-widget b {
-    color: #e95420;
-}
-
-.ui-dialog-title {
-    font-weight: bold;
-    font-size: 20;
-}
-
-.page-content {
-    padding: 0; !important
-}
-
-
-    .MyWrapper {
-        display:flex; 
-        justify-content: center; 
-        flex-direction: column;
-        align-items: center;
-    }
-
-    #OptionPannel {
-        display:flex; 
-        justify-content: center; 
-}
-#MapDiv {
-    display:inline-block; 
-}
-text {font-family: Metropolis;
-}
-
-
-    .hover-info {
-    width: 150px;
-    z-index: 10001;
-    position: absolute;
-    padding-left: 4px;
-    background: #fafafa;
-    border: 1px solid black;
-    border-radius: 6px;
-    overflow: visible;
-  }
-  .hover-info-tournament {
-    width: 300px;
-    z-index: 10001;
-    position: absolute;
-    padding-left: 4px;
-    background: #fafafa;
-    border: 1px solid black;
-    border-radius: 6px;
-    overflow: visible;
-  }
-    .pannel {
-    width: 70%;
-    height: 100px;
-    z-index: 10001;
-    padding-left: 4px;
-    background: #fafafa;
-    overflow: visible;
-    border: 1px solid black;
-    border-radius: 10px;
-    display: flex; 
-    flex-direction: row; 
-    justify-content: space-around; 
-    gap:10px; 
-    align-items: center;
-  }
-    #date {
-    font-weight: bold;
-    font-size: 25px;
-    color: #e95420;
-  }
- 
-  .wrapper {
-      max-width: none; !important
-  }
-
-  .svg-container {
-    display: inline-block;
-    position: relative;
-    width: 80vw;
-    height: 55vh;
-    overflow: hidden;
-}
-.svg-content {
-    display: inline-block;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-
-
-  </style>
