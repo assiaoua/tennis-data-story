@@ -7,8 +7,8 @@ color = d3.scaleOrdinal(d3.schemeCategory10);
 /////// SLIDER YEAR ///////
 
 var L = 10;
-var slider_size = 0.65*width;
-var left_margin = 0.4*(width - slider_size);
+var slider_size = 0.85*width;
+var left_margin = 0*(width - slider_size);
 
 var x = d3.scaleLinear()
 .domain([0,10])
@@ -294,7 +294,7 @@ link.on('click',function(mylink){
   .attr("width", 50)
   .attr("height", 50)
   .attr('x', '0px')
-  .attr('y', '550px');
+  .attr('y', '460px');
 
   d3.select('#imagesVS_pc').append('svg')
     .attr("width", 500)
