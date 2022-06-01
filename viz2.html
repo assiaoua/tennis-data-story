@@ -14,13 +14,15 @@ The code source of the visualization can be found at https://observablehq.com/@a
 <link rel="stylesheet" href="assets/tab1_network_site/lib/jquery.dataTables.min.css">
 <link rel="stylesheet" href="assets/css/viz2.css">
 
-<h1 style="margin:64px">The Geographical Choreography of Tennis Players </h1>
+<div class="row">
+  <div class="col-md-10">
+    <h1 style="margin:64px">The Geographical Choreography of Tennis Players</h1>  
+  </div>
+  <div class="col-md-1">
+    <button id="opener" style="display: inline; margin:64px">Tutorial</button>
+  </div>
 
-
-
-<button id="opener" style="position: absolute; right: 15vw; top: 10vh">Tutorial</button>
-
-
+</div>
 
 
 <div class="MyWrapper">
@@ -37,7 +39,7 @@ The code source of the visualization can be found at https://observablehq.com/@a
     <p>
         Each moving circle corresponds to a player, you can follow his journey from cities to cities! Between two matches 
         its position is interpolated on the globe between the start and end position. 
-        For player that don't play for a long time, they smoothly dispaear in the middle of the journey and 
+        For player that don't play for a long time, they smoothly dispear in the middle of the journey and 
         appear again once they are close to the location of their restarting match.
     </p>
     <b>The Tournaments</b>
@@ -49,6 +51,8 @@ The code source of the visualization can be found at https://observablehq.com/@a
         You can also zoom in to have a more precise look at some regions.
     </p>
 </div>
+
+<br><br>
 
 <script src="assets/tab1_network_site/lib/jquery.min.js"></script>
 <script src="assets/tab1_network_site/lib/jquery-3.6.0.js"></script>
@@ -77,7 +81,7 @@ The code source of the visualization can be found at https://observablehq.com/@a
     });
 </script>
 
-
+<br><br>
 <script> //for the tutorial pannel
     $( function() {
       $( "#dialog" ).dialog({
