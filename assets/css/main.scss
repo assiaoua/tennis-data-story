@@ -12,13 +12,13 @@
 
 
 
-/* @font-face {
-  font-family: "Metropolis";
+@font-face {
+  font-family: "Metropolis Regular";
   src: url("metropolis/Metropolis-Regular.otf");
   font-weight: normal;
   font-style: normal;
 } 
-@font-face {
+/* @font-face {
   font-family: "Metropolis-SemiBold";
   src: url("metropolis/Metropolis-SemiBold.otf");
   font-weight: bold;
@@ -118,7 +118,6 @@ label {
     margin-left: 20px;
   }
 }
-
 .flex-item {
   width: 45%;
   order: 1;  
@@ -135,12 +134,17 @@ label {
 }
 
 .regular {
-  font-family: Metropolis;
+  font-family: Metropolis Regular;
 }
 
 .team-photos{
-  width: auto;
-  height: 300px;
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
+
+.team-names {
+  text-align: center;
+  color: #F55A00;
 }
 
 .behind{

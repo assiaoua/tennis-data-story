@@ -9,9 +9,15 @@ title: Ranking
 <link rel="stylesheet" href="assets/tab1_network_site/lib/jquery-ui.css">
 <link rel="stylesheet" href="assets/tab1_network_site/lib/jquery.dataTables.min.css">
 
+<div class="row">
+  <div class="col-md-9">
+    <h1 style="margin:64px">Ranking Bar Chart Race</h1>  
+  </div>
+  <div class="col-md-2">
+    <button id="opener" style="display: inline; margin:64px">Tutorial</button>
+  </div>
 
-<h1 style="margin:64px">Ranking Bar Chart Race</h1>
-
+</div>
 <h2>Per countries</h2>
 
 <div id="observablehq-chart-de1d5eec"></div>
@@ -42,27 +48,22 @@ new Runtime().module(define, name => {
 });
 </script>
 
-<button id="opener" style="position: absolute; right: 15vw; top: 25vh">Tutorial</button>
+
 
 <div id="dialog" title="Map Tutorial">
 
-    <b>The Map</b>
-    <p> This map shows the geographical location of all the ATP matches since 2008. 
+    <b>The bar chart race</b>
+    <p> This charts show the ranking of the top 12 players and top 12 countries.
     </p>
         <b>The Players</b>
     <p>
-        Each moving circle corresponds to a player, you can follow his journey from cities to cities! Between two matches 
-        its position is interpolated on the globe between the start and end position. 
-        For player that don't play for a long time, they smoothly dispaear in the middle of the journey and 
-        appear again once they are close to the location of their restarting match.
+      Each bar corresponds to a player, with its length showcasing the number of maximum of ATP points of that player.
     </p>
-    <b>The Tournaments</b>
+    <b>The Countries</b>
     <p>
-        The orange circle corresponds to the tournaments that hosts the ATP matches, the bigger its size, the more 
-        matches the tournaments hosted.
+      Each bar corresponds to a country, with its length showcasing the number of wins per country.
      </p>
-    <p> The map is <i>interactive</i>! Hover the players and the tournaments to discover additionnal information.
-        You can also zoom in to have a more precise look at some regions.
+    <p> The bar chart is <i>interactive</i>! You can stop it at any moment by clicking on pause or select the year of interest by sliding over the provided timeline.
     </p>
 </div>
 
@@ -95,36 +96,4 @@ new Runtime().module(define, name => {
     } );
   </script>
 
-<style>
 
-.ui-widget {
-    font-family: Metropolis;
-}
-
-.ui-widget b {
-    color: #e95420;
-}
-
-.ui-dialog-title {
-    font-weight: bold;
-    font-size: 20;
-}
-
-.page-content {
-    padding: 3% 0px; !important
-}
-
-
-    .MyWrapper {
-        display:flex; 
-        justify-content: center; 
-        flex-direction: column;
-        align-items: center;
-    }
-
-    #OptionPannel {
-        display:flex; 
-        justify-content: center; 
-}
-
-  </style>
