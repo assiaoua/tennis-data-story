@@ -4,14 +4,13 @@
 html {
   &[data-header-transparent] {
     header.site-header {
-      position: fixed;
+      position: relative;
     }
   }
 
   &[data-scroll-status='top'] {
     header.site-header-transparent {
       height: 0;
-      margin-top: 12px;
       background-color: transparent;
       transition: 0.1s height,background-color,box-shadow;
 
@@ -249,7 +248,7 @@ html {
   @extend %flex-1; /* <-- Keep footer on the bottom */
   -ms-flex: none; /* <-- Fix IE footer issue */
   padding: $spacing-unit * 2 0;
-  padding-top: 5px;
+  padding-top: 3%;
 }
 
 .page-heading {

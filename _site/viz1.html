@@ -285,149 +285,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 
 
-<span class="page-link">
-
-
-
-<div id="google_translate_element" style="display: none;">
-</div>
-
-<span class="ct-language">
-  <ul class="list-unstyled ct-language-dropdown">
-    
-      <li>
-        <a href="#" class="lang-select" data-lang="en">
-          
-          <img src="https://cdn.countryflags.com/thumbs/united-states-of-america/flag-400.png" title="English">
-          
-        </a>
-      </li>
-    
-      <li>
-        <a href="#" class="lang-select" data-lang="fr">
-          
-          <img src="https://cdn.countryflags.com/thumbs/france/flag-400.png" title="French">
-          
-        </a>
-      </li>
-    
-      <li>
-        <a href="#" class="lang-select" data-lang="zh-CN">
-          
-          <img src="https://cdn.countryflags.com/thumbs/china/flag-400.png" title="Chinese(Simple)">
-          
-        </a>
-      </li>
-    
-      <li>
-        <a href="#" class="lang-select" data-lang="ja">
-          
-          <img src="https://cdn.countryflags.com/thumbs/japan/flag-400.png" title="Japanese">
-          
-        </a>
-      </li>
-    
-      <li>
-        <a href="#" class="lang-select" data-lang="ko">
-          
-          <img src="https://cdn.countryflags.com/thumbs/south-korea/flag-400.png" title="Korean">
-          
-        </a>
-      </li>
-    
-      <li>
-        <a href="#" class="lang-select" data-lang="ru">
-          
-          <img src="https://cdn.countryflags.com/thumbs/russia/flag-400.png" title="Russian">
-          
-        </a>
-      </li>
-    
-  </ul>
-</span>
-
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({
-    pageLanguage: 'en',
-    autoDisplay: false,
-    layout: google.translate.TranslateElement.InlineLayout.VERTICAL
-  }, 'google_translate_element');
-
-  // Links to cross-origin destinations are unsafe
-  var gll = document.getElementsByClassName('goog-logo-link')[0];
-  if (gll) {
-    gll.setAttribute('rel', 'noopener');
-  }
-
-  function restoreLang() {
-    var iframe = document.getElementsByClassName('goog-te-banner-frame')[0];
-    if (!iframe) return;
-
-    var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
-    var restore_el = innerDoc.getElementsByTagName("button");
-
-    for (var i = 0; i < restore_el.length; i++) {
-      if (restore_el[i].id.indexOf("restore") >= 0) {
-        restore_el[i].click();
-        var close_el = innerDoc.getElementsByClassName("goog-close-link");
-        close_el[0].click();
-        return;
-      }
-    }
-  }
-
-  function triggerHtmlEvent(element, eventName) {
-    var event;
-    if (document.createEvent) {
-      event = document.createEvent('HTMLEvents');
-      event.initEvent(eventName, true, true);
-      element.dispatchEvent(event);
-    } else {
-      event = document.createEventObject();
-      event.eventType = eventName;
-      element.fireEvent('on' + event.eventType, event);
-    }
-  }
-
-  var googleCombo = document.querySelector("select.goog-te-combo");
-  var langSelect = document.querySelector('.ct-language');
-  langSelect.addEventListener('click', function(event) {
-    if (!event.target) {
-      return;
-    }
-
-    var selected = document.querySelector('.ct-language .ct-language-selected');
-    if (selected) {
-      selected.classList.remove('ct-language-selected');
-    }
-
-    var target = event.target;
-    while (target && target !== langSelect ) {
-      if (target.matches('.lang-select')) {
-        break;
-      }
-      target = target.parentElement;
-    }
-
-    if (target && target.matches('.lang-select')) {
-      var lang = target.getAttribute('data-lang');
-      if (googleCombo.value == lang) {
-        restoreLang();
-      } else {
-        target.parentElement.classList.add('ct-language-selected');
-        googleCombo.value = lang;
-        triggerHtmlEvent(googleCombo, 'change');
-      }
-    }
-
-    event.preventDefault();
-  });
-}
-</script>
-
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-</span>
+<span class="page-link"></span>
 </div>
         </nav>
 </div>
@@ -661,113 +519,6 @@ function googleTranslateElementInit() {
     }
   });
 </script>
-<div class="theme-toggle">
-  <input type="checkbox" id="theme-switch">
-  <label for="theme-switch">
-    <div class="toggle"></div>
-    <div class="names">
-      <p class="light">Light</p>
-      <p class="dark">Dark</p>
-    </div>
-  </label>
-</div>
-
-
-
-
-<script>
-  (function() {
-    var sw = document.getElementById('theme-switch');
-    var html = document.getElementsByTagName('html')[0];
-    var nightModeOption = ('auto' || 'auto').toLowerCase();
-    var storage = nightModeOption === 'manual'
-        ? localStorage
-        : sessionStorage;
-    var themeData = loadThemeData();
-
-    function saveThemeData(data) {
-      storage.setItem('theme', JSON.stringify(data));
-    }
-
-    function loadThemeData() {
-      var data = storage.getItem('theme');
-      try {
-        data = JSON.parse(data ? data : '');
-      } catch(e) {
-        data = { nightShift: undefined, autoToggleAt: 0 };
-        saveThemeData(data);
-      }
-      return data;
-    }
-
-    function handleThemeToggle(nightShift) {
-      themeData.nightShift = nightShift;
-      saveThemeData(themeData);
-      html.dataset.theme = nightShift ? 'dark' : 'light';
-      setTimeout(function() {
-        sw.checked = nightShift ? true : false;
-      }, 50);
-    }
-
-    function autoThemeToggle() {
-      // Next time point of theme toggle
-      var now = new Date();
-      var toggleAt = new Date();
-      var hours = now.getHours();
-      var nightShift = hours >= 19 || hours <=7;
-
-      if (nightShift) {
-        if (hours > 7) {
-          toggleAt.setDate(toggleAt.getDate() + 1);
-        }
-        toggleAt.setHours(7);
-      } else {
-        toggleAt.setHours(19);
-      }
-
-      toggleAt.setMinutes(0);
-      toggleAt.setSeconds(0);
-      toggleAt.setMilliseconds(0)
-
-      var delay = toggleAt.getTime() - now.getTime();
-
-      // auto toggle theme mode
-      setTimeout(function() {
-        handleThemeToggle(!nightShift);
-      }, delay);
-
-      return {
-        nightShift: nightShift,
-        toggleAt: toggleAt.getTime()
-      };
-    }
-
-    // Listen the theme toggle event
-    sw.addEventListener('change', function(event) {
-      handleThemeToggle(event.target.checked);
-    });
-
-    if (nightModeOption == 'auto') {
-      var data = autoThemeToggle();
-
-      // Toggle theme by local setting
-      if (data.toggleAt > themeData.autoToggleAt) {
-        themeData.autoToggleAt = data.toggleAt;
-        handleThemeToggle(data.nightShift);
-      } else {
-        handleThemeToggle(themeData.nightShift);
-      }
-    } else if (nightModeOption == 'manual') {
-      handleThemeToggle(themeData.nightShift);
-    } else {
-      var nightShift = themeData.nightShift;
-      if (nightShift === undefined) {
-        nightShift = nightModeOption === 'on';
-      }
-      handleThemeToggle(nightShift);
-    }
-  })();
-</script>
 <div id="click-to-top" class="click-to-top">
   <i class="fa fa-arrow-up"></i>
 </div>
@@ -800,88 +551,89 @@ function googleTranslateElementInit() {
 <link rel="stylesheet" href="assets/tab1_network_site/lib/jquery.dataTables.min.css">
 
 
+<h1 style="margin:64px">Tennis Players Graph</h1>
 
-    <svg width="1485" height="690">
-      <text width="13.89" height="13.89" x="218" y="615">Year:</text>
-    </svg>
-
-
-    <div id="WRank">
-
-    <p>
-      <label for="amount-Wrank">Winner Rank range:</label>
-      <input type="text" id="amount-Wrank" readonly style="border:0; color:#F55A00; font-weight:bold;">
+<div id="dialog" title="Graph tutorial" class="container">
+  <p>
+    <b>Graph</b>
     </p>
-     
-    <div id="slider-range-Wrank"></div>
-
-    </div>
-
-
-    <div id="NodeSize">
-
-    <p>
-      <label for="amount-NodeSize">Node size</label>
-      <br>
-      <input type="text" id="amount-NodeSize" readonly style="border:0; color:#F55A00; font-weight:bold;">
+<ul>
+      <li>This graph groups the ATP tennis match disputed since 2008 with the loser's rank below 40 and the winner's rank below 40.</li>
+      <li>The nodes of the graph correspond to tennis players. The size of the nodes is proportional to the number of matches the player has played.</li>
+      <li>The link between two players groups all the matches that the two players have played together in the given year. The thickness of the links between the players is proportional to the number of matches.</li>
+    </ul>
+  
+  <p>
+    <b>Selection</b>
     </p>
-     
-    <div id="slider-range-NodeSize" style="height:180px;"></div>
-
-   </div>
+<ul>
+      <li>The "Node size" and "Edge size" sliders allow you to set the minimum and maximum size of nodes and links respectively.</li>
+      <li>The "Year" slider allows you to select the matches of a particular year. The size of the nodes and links is adapted for each year.</li>
+      <li>The "Winner Rank range" slider allows you to select only those links between players for which the winner's rank for each match is within the selected range. This deletes only the unselected links and does not vary the size of the nodes and links.</li>
+    </ul>
+  
+  <p>
+    <b>Information</b>
+    </p>
+<ul>
+      <li>To study a particular node, it can be moved by clicking and holding the mouse on it while moving it. When you release the mouse, the node remains where you placed it. You can then vary the year and/or the Winner Rank range to see how the node evolves. To return the node to its initial position, simply click on it.</li>
+      <li>If you move the mouse over a node, information about the player is displayed: name, nationality, starting year as a pro, weight, height and playing hand.</li>
+      <li>If you click on the link between two players, a table with all the matches between the two players for the given year is displayed. This table contains the following information for each match: year, winner, ATP, location, tournament, series, court, surface, round, ATP entry ranking of the match winner or loser as of the start of the tournament (WRank and LRank), ATP entry points of the match winner or loser as of the start of the tournament (WPts and LPts), number of games won in n-th set by match winner or loser (W1, L1, W2, L2, W3, L3, W4, L4, W5 and L5), number of sets won by match winner or loser (Wsets and Lsets), Comment, bet365 odds of match winner or loser (B365W and B365L).</li>
+    </ul>
+  
+</div>
+<button id="opener" style="position: absolute; left: 70vw; top: 25vh">Tutorial</button>
    
 
-   <div id="EdgeSize">
-
-   <p>
-     <label for="amount-EdgeSize">Edge size</label>
-     <br>
-     <input type="text" id="amount-EdgeSize" readonly style="border:0; color:#F55A00; font-weight:bold;">
-   </p>
-    
-   <div id="slider-range-EdgeSize" style="height:180px;"></div>
-
+<div class="container">
+  <div class="row">
+    <div class="col-md-12  my-auto">
+      <svg width="1000" height="600" id="svg_graph">
+        <text width="13.89" height="13.89">Year:</text>
+      </svg>
+  </div>
   </div>
 
-
-  <div id="PlayersComparison" style="position:absolute; top:800px">
+  <div class="row">
+    <div class="col-md-8 my-auto">
+      <div id="WRank">
+        <p>
+          <label for="amount-Wrank">Winner Rank range:</label>
+          <input type="text" id="amount-Wrank" readonly style="border:0; color:#F55A00; font-weight:bold;">
+        </p>
+        <div id="slider-range-Wrank"></div>
+      </div>
+    </div>
+      
     
+    <div class="col-md-2">
+      <div id="NodeSize">
+        <p>
+          <label for="amount-NodeSize">Node size</label>
+          <br>
+          <input type="text" id="amount-NodeSize" readonly style="border:0; color:#F55A00; font-weight:bold;">
+        </p>
+        <div id="slider-range-NodeSize" style="height:180px;"></div>
+      </div>
+    </div>
+
+    <div class="col-md-2">
+      <div id="EdgeSize">
+        <p>
+          <label for="amount-EdgeSize">Edge size</label>
+          <br>
+          <input type="text" id="amount-EdgeSize" readonly style="border:0; color:#F55A00; font-weight:bold;">
+        </p>
+        <div id="slider-range-EdgeSize" style="height:180px;"></div>
+        </div> 
+    </div>
   </div>
 
-
-  <div id="dialog" title="Graph tutorial">
-    <p>
-      Graph:
-      </p>
-<ul>
-        <li>This graph groups all the ATP tennis match disputed since 2008.</li>
-        <li>The nodes of the graph correspond to tennis players. The size of the nodes is proportional to the number of matches the player has played.</li>
-        <li>The link between two players groups all the matches that the two players have played together in the given year. The thickness of the links between the players is proportional to the number of matches.</li>
-      </ul>
-    
-    <p>
-      Selection:
-      </p>
-<ul>
-        <li>The "Node size" and "Edge size" sliders allow you to set the minimum and maximum size of nodes and links respectively.</li>
-        <li>The "Year" slider allows you to select the matches of a particular year. The size of the nodes and links is adapted for each year.</li>
-        <li>The "Winner Rank range" slider allows you to select only those links between players for which the winner's rank for each match is within the selected range. This deletes only the unselected links and does not vary the size of the nodes and links.</li>
-      </ul>
-    
-    <p>
-      Information:
-      </p>
-<ul>
-        <li>To study a particular node, it can be moved by clicking and holding the mouse on it while moving it. When you release the mouse, the node remains where you placed it. You can then vary the year and/or the Winner Rank range to see how the node evolves. To return the node to its initial position, simply click on it.</li>
-        <li>If you move the mouse over a node, information about the player is displayed: name, nationality, starting year as a pro, weight, height and playing hand.</li>
-        <li>If you click on the link between two players, a table with all the matches between the two players for the given year is displayed. This table contains the following information for each match: year, winner, ATP, location, tournament, series, court, surface, round, ATP entry ranking of the match winner or loser as of the start of the tournament (WRank and LRank), ATP entry points of the match winner or loser as of the start of the tournament (WPts and LPts), number of games won in n-th set by match winner or loser (W1, L1, W2, L2, W3, L3, W4, L4, W5 and L5), number of sets won by match winner or loser (Wsets and Lsets), Comment, bet365 odds of match winner or loser (B365W and B365L).</li>
-      </ul>
-    
+<div class="row">
+    <div id="PlayersComparison" style="width: 1600px">
   </div>
-  <button id="opener" style="position: absolute; left: 1500px; top: 30px;">Tutorial</button>
-     
-     
-
+</div>
+</div>
 
 
 <script src="assets/tab1_network_site/lib/d3.v4.min.js"></script>
@@ -892,6 +644,29 @@ function googleTranslateElementInit() {
 
 <script src="assets/tab1_network_site/tab1_network.js"></script>
 
+
+<script>
+  $( function() {
+    $( "#dialog" ).dialog({
+      autoOpen: false,
+      show: {
+        effect: "blind",
+        duration: 100
+      },
+      hide: {
+        effect: "blind",
+        duration: 100
+      },
+      width: 1000
+    });
+ 
+    $( "#opener" ).on( "click", function() {
+      $( "#dialog" ).dialog( "open" );
+    });
+  } );
+</script>
+
+<!--
 <script>
   $( function() {
     $( "#dialog" ).dialog({
@@ -912,9 +687,14 @@ function googleTranslateElementInit() {
     });
   } );
 </script>
+-->
 
 
-
+<style>
+  .wrapper {
+      max-width: none; !important
+  }
+</style>
   <!-- 
   
 -->

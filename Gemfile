@@ -5,3 +5,4 @@ gemspec
 
 
 gem "webrick", "~> 1.7"
+gem "nokogiri", ">= 1.6.7.rc"

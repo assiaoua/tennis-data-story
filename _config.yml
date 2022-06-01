@@ -156,7 +156,7 @@ header_pages:
 defaults:
   home:
     heading: "Tennis Data Story"
-    subheading: "Explore the tennis world."
+    subheading: "Explore the tennis world"
     banner: "assets/images/banners/maurits-bausenhart-XtcZbSPVJ3A-unsplash.jpg"
 
 # Banner default settings

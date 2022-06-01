@@ -1,6 +1,6 @@
     var svg = d3.select("svg").attr("id", "mainSvg"),
-        width = +svg.attr("width"),
-        height = +svg.attr("height"),
+        width = 1485,
+        height = 690,
         color = d3.scaleOrdinal(d3.schemeCategory10);
 
 
@@ -157,7 +157,7 @@
 
     /////// GRAPH ////////
 
-    d3.json("graph.json", function(error, graph) {
+    d3.json('assets/tab1_network_site/graph.json', function(error, graph) {
        if (error) throw error;
 
        // User-defined parameters
@@ -239,7 +239,7 @@
          node.exit().remove();
          node = node.enter().append("image")
                    .attr("class","node")
-                   .attr("xlink:href", function(d){ return d.img; })
+                   .attr("xlink:href", function(d){ return 'assets/tab1_network_site/'+d.img; })
                    .merge(node)
                    .call(d3.drag()
                         .on("start", dragstarted)
@@ -297,7 +297,7 @@
           divComparison.innerHTML = "";
 
           d3.select('svg').append('svg:image')
-          .attr('xlink:href', 'img/dessin_balle-tennis.png')
+          .attr('xlink:href', 'assets/tab1_network_site/'+'img/dessin_balle-tennis.png')
           .attr("width", 160)
           .attr("height", 160)
           .attr('x', '0px')
@@ -309,13 +309,13 @@
             .attr("transform","translate(30,0)");
         
           d3.select('#PlayersComparison').select('svg').append('svg:image')
-            .attr('xlink:href', mylink.source.img)
+            .attr('xlink:href', 'assets/tab1_network_site/'+mylink.source.img)
             .attr("width", 160)
             .attr("height", 160)
             .attr('x', '0px');
         
           d3.select('#PlayersComparison').select('svg').append('svg:image')
-            .attr('xlink:href', mylink.target.img)
+            .attr('xlink:href', 'assets/tab1_network_site/'+mylink.target.img)
             .attr("width", 160)
             .attr("height", 160)
             .attr('x', '325px');

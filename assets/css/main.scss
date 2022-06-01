@@ -56,17 +56,6 @@
 
 
 
-.page-banner-subheading {
-  position: relative;
-  left: -120px;
-  bottom:10px;
-}
-.page-banner-heading {
-  position: relative;
-  left: -120px;
-  bottom:10px;
-}
-
 .page-link{
   display: inline-block;
 }
@@ -114,6 +103,7 @@ label {
   display: flex;
   align-items: flex-start;
   text-align: left;
+  color: #F55A00;
 
   &:after {
     content: '';
@@ -159,6 +149,7 @@ label {
   width: 50%;
   z-index:-1;
 }
+
 // Default theme colors
 $theme-colors: (
   "coolblack": #090a0b,
@@ -193,4 +184,5 @@ $brand-color: map-get($brand-colors, "orangered");
 $content-width: {{ site.content_width | default: '920px' }};
 
 @import "yat";
+
 

@@ -48,7 +48,6 @@
   position:relative;
 }
 .range-sliderR:before {
-  position: absolute;
   left: 0;
   fill: #fff;
   stroke: #000;
@@ -56,7 +55,6 @@
   stroke-width: 1.25px;
 }
 .range-sliderR:after {
-  position: absolute;
   right: 0;
   fill: #fff;
   stroke: #000;

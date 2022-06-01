@@ -285,149 +285,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 
 
-<span class="page-link">
-
-
-
-<div id="google_translate_element" style="display: none;">
-</div>
-
-<span class="ct-language">
-  <ul class="list-unstyled ct-language-dropdown">
-    
-      <li>
-        <a href="#" class="lang-select" data-lang="en">
-          
-          <img src="https://cdn.countryflags.com/thumbs/united-states-of-america/flag-400.png" title="English">
-          
-        </a>
-      </li>
-    
-      <li>
-        <a href="#" class="lang-select" data-lang="fr">
-          
-          <img src="https://cdn.countryflags.com/thumbs/france/flag-400.png" title="French">
-          
-        </a>
-      </li>
-    
-      <li>
-        <a href="#" class="lang-select" data-lang="zh-CN">
-          
-          <img src="https://cdn.countryflags.com/thumbs/china/flag-400.png" title="Chinese(Simple)">
-          
-        </a>
-      </li>
-    
-      <li>
-        <a href="#" class="lang-select" data-lang="ja">
-          
-          <img src="https://cdn.countryflags.com/thumbs/japan/flag-400.png" title="Japanese">
-          
-        </a>
-      </li>
-    
-      <li>
-        <a href="#" class="lang-select" data-lang="ko">
-          
-          <img src="https://cdn.countryflags.com/thumbs/south-korea/flag-400.png" title="Korean">
-          
-        </a>
-      </li>
-    
-      <li>
-        <a href="#" class="lang-select" data-lang="ru">
-          
-          <img src="https://cdn.countryflags.com/thumbs/russia/flag-400.png" title="Russian">
-          
-        </a>
-      </li>
-    
-  </ul>
-</span>
-
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({
-    pageLanguage: 'en',
-    autoDisplay: false,
-    layout: google.translate.TranslateElement.InlineLayout.VERTICAL
-  }, 'google_translate_element');
-
-  // Links to cross-origin destinations are unsafe
-  var gll = document.getElementsByClassName('goog-logo-link')[0];
-  if (gll) {
-    gll.setAttribute('rel', 'noopener');
-  }
-
-  function restoreLang() {
-    var iframe = document.getElementsByClassName('goog-te-banner-frame')[0];
-    if (!iframe) return;
-
-    var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
-    var restore_el = innerDoc.getElementsByTagName("button");
-
-    for (var i = 0; i < restore_el.length; i++) {
-      if (restore_el[i].id.indexOf("restore") >= 0) {
-        restore_el[i].click();
-        var close_el = innerDoc.getElementsByClassName("goog-close-link");
-        close_el[0].click();
-        return;
-      }
-    }
-  }
-
-  function triggerHtmlEvent(element, eventName) {
-    var event;
-    if (document.createEvent) {
-      event = document.createEvent('HTMLEvents');
-      event.initEvent(eventName, true, true);
-      element.dispatchEvent(event);
-    } else {
-      event = document.createEventObject();
-      event.eventType = eventName;
-      element.fireEvent('on' + event.eventType, event);
-    }
-  }
-
-  var googleCombo = document.querySelector("select.goog-te-combo");
-  var langSelect = document.querySelector('.ct-language');
-  langSelect.addEventListener('click', function(event) {
-    if (!event.target) {
-      return;
-    }
-
-    var selected = document.querySelector('.ct-language .ct-language-selected');
-    if (selected) {
-      selected.classList.remove('ct-language-selected');
-    }
-
-    var target = event.target;
-    while (target && target !== langSelect ) {
-      if (target.matches('.lang-select')) {
-        break;
-      }
-      target = target.parentElement;
-    }
-
-    if (target && target.matches('.lang-select')) {
-      var lang = target.getAttribute('data-lang');
-      if (googleCombo.value == lang) {
-        restoreLang();
-      } else {
-        target.parentElement.classList.add('ct-language-selected');
-        googleCombo.value = lang;
-        triggerHtmlEvent(googleCombo, 'change');
-      }
-    }
-
-    event.preventDefault();
-  });
-}
-</script>
-
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-</span>
+<span class="page-link"></span>
 </div>
         </nav>
 </div>
@@ -661,113 +519,6 @@ function googleTranslateElementInit() {
     }
   });
 </script>
-<div class="theme-toggle">
-  <input type="checkbox" id="theme-switch">
-  <label for="theme-switch">
-    <div class="toggle"></div>
-    <div class="names">
-      <p class="light">Light</p>
-      <p class="dark">Dark</p>
-    </div>
-  </label>
-</div>
-
-
-
-
-<script>
-  (function() {
-    var sw = document.getElementById('theme-switch');
-    var html = document.getElementsByTagName('html')[0];
-    var nightModeOption = ('auto' || 'auto').toLowerCase();
-    var storage = nightModeOption === 'manual'
-        ? localStorage
-        : sessionStorage;
-    var themeData = loadThemeData();
-
-    function saveThemeData(data) {
-      storage.setItem('theme', JSON.stringify(data));
-    }
-
-    function loadThemeData() {
-      var data = storage.getItem('theme');
-      try {
-        data = JSON.parse(data ? data : '');
-      } catch(e) {
-        data = { nightShift: undefined, autoToggleAt: 0 };
-        saveThemeData(data);
-      }
-      return data;
-    }
-
-    function handleThemeToggle(nightShift) {
-      themeData.nightShift = nightShift;
-      saveThemeData(themeData);
-      html.dataset.theme = nightShift ? 'dark' : 'light';
-      setTimeout(function() {
-        sw.checked = nightShift ? true : false;
-      }, 50);
-    }
-
-    function autoThemeToggle() {
-      // Next time point of theme toggle
-      var now = new Date();
-      var toggleAt = new Date();
-      var hours = now.getHours();
-      var nightShift = hours >= 19 || hours <=7;
-
-      if (nightShift) {
-        if (hours > 7) {
-          toggleAt.setDate(toggleAt.getDate() + 1);
-        }
-        toggleAt.setHours(7);
-      } else {
-        toggleAt.setHours(19);
-      }
-
-      toggleAt.setMinutes(0);
-      toggleAt.setSeconds(0);
-      toggleAt.setMilliseconds(0)
-
-      var delay = toggleAt.getTime() - now.getTime();
-
-      // auto toggle theme mode
-      setTimeout(function() {
-        handleThemeToggle(!nightShift);
-      }, delay);
-
-      return {
-        nightShift: nightShift,
-        toggleAt: toggleAt.getTime()
-      };
-    }
-
-    // Listen the theme toggle event
-    sw.addEventListener('change', function(event) {
-      handleThemeToggle(event.target.checked);
-    });
-
-    if (nightModeOption == 'auto') {
-      var data = autoThemeToggle();
-
-      // Toggle theme by local setting
-      if (data.toggleAt > themeData.autoToggleAt) {
-        themeData.autoToggleAt = data.toggleAt;
-        handleThemeToggle(data.nightShift);
-      } else {
-        handleThemeToggle(themeData.nightShift);
-      }
-    } else if (nightModeOption == 'manual') {
-      handleThemeToggle(themeData.nightShift);
-    } else {
-      var nightShift = themeData.nightShift;
-      if (nightShift === undefined) {
-        nightShift = nightModeOption === 'on';
-      }
-      handleThemeToggle(nightShift);
-    }
-  })();
-</script>
 <div id="click-to-top" class="click-to-top">
   <i class="fa fa-arrow-up"></i>
 </div>
@@ -794,15 +545,134 @@ function googleTranslateElementInit() {
      <div class="articles">
   
 
-      <iframe width="100%" height="682" frameborder="0" src="https://observablehq.com/embed/@assiaoua/bar-chart-race-explained?cells=chart"></iframe>
-    <br>
-    <iframe width="100%" height="682" frameborder="0" src="https://observablehq.com/embed/3b7b92a13a6a4335?cells=chart"></iframe>
-<script src="//d3js.org/d3.v3.min.js"></script>
-<script src="//d3js.org/topojson.v1.min.js"></script>
+  <link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="assets/tab1_network_site/tab1_network.css">
+<link rel="stylesheet" href="assets/tab1_network_site/lib/jquery-ui.css">
+<link rel="stylesheet" href="assets/tab1_network_site/lib/jquery.dataTables.min.css">
+
+
+<h1 style="margin:64px">Ranking Bar Chart Race</h1>
+
+<h2>Per countries</h2>
+
+<div id="observablehq-chart-de1d5eec"></div>
+<div id="observablehq-viewof-keyframe-de1d5eec"></div>
+
+<script type="module">
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+import define from "https://api.observablehq.com/@assiaoua/bar-chart-race-with-scrubber.js?v=3";
+new Runtime().module(define, name => {
+  if (name === "chart") return new Inspector(document.querySelector("#observablehq-chart-de1d5eec"));
+  if (name === "viewof keyframe") return new Inspector(document.querySelector("#observablehq-viewof-keyframe-de1d5eec"));
+  return ["update"].includes(name);
+});
+</script>
+<br><br>
+<h2>Per players</h2>
+
+<div id="observablehq-chart-e84d2801"></div>
+<div id="observablehq-viewof-keyframe-e84d2801"></div>
+
+<script type="module">
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+import define from "https://api.observablehq.com/@assiaoua/bar-chart-race-with-scrubber-players.js?v=3";
+new Runtime().module(define, name => {
+  if (name === "chart") return new Inspector(document.querySelector("#observablehq-chart-e84d2801"));
+  if (name === "viewof keyframe") return new Inspector(document.querySelector("#observablehq-viewof-keyframe-e84d2801"));
+  return ["update"].includes(name);
+});
+</script>
+
+<button id="opener" style="position: absolute; right: 15vw; top: 25vh">Tutorial</button>
+
+<div id="dialog" title="Map Tutorial">
+
+    <b>The Map</b>
+    <p> This map shows the geographical location of all the ATP matches since 2008. 
+    </p>
+        <b>The Players</b>
+    <p>
+        Each moving circle corresponds to a player, you can follow his journey from cities to cities! Between two matches 
+        its position is interpolated on the globe between the start and end position. 
+        For player that don't play for a long time, they smoothly dispaear in the middle of the journey and 
+        appear again once they are close to the location of their restarting match.
+    </p>
+    <b>The Tournaments</b>
+    <p>
+        The orange circle corresponds to the tournaments that hosts the ATP matches, the bigger its size, the more 
+        matches the tournaments hosted.
+     </p>
+    <p> The map is <i>interactive</i>! Hover the players and the tournaments to discover additionnal information.
+        You can also zoom in to have a more precise look at some regions.
+    </p>
+</div>
+
+<script src="assets/tab1_network_site/lib/jquery.min.js"></script>
+<script src="assets/tab1_network_site/lib/jquery-3.6.0.js"></script>
+<script src="assets/tab1_network_site/lib/jquery-ui.js"></script>
+<script src="assets/tab1_network_site/lib/jquery.dataTables.min.js"></script>
 
 
 
+
+<script>
+    $( function() {
+      $( "#dialog" ).dialog({
+        autoOpen: false,
+        show: {
+          effect: "blind",
+          duration: 100
+        },
+        hide: {
+          effect: "blind",
+          duration: 100
+        },
+        width: 1000
+      });
+   
+      $( "#opener" ).on( "click", function() {
+        $( "#dialog" ).dialog( "open" );
+      });
+    } );
+  </script>
+
+<style>
+
+.ui-widget {
+    font-family: Metropolis;
+}
+
+.ui-widget b {
+    color: #e95420;
+}
+
+.ui-dialog-title {
+    font-weight: bold;
+    font-size: 20;
+}
+
+.page-content {
+    padding: 3% 0px; !important
+}
+
+
+    .MyWrapper {
+        display:flex; 
+        justify-content: center; 
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #OptionPannel {
+        display:flex; 
+        justify-content: center; 
+}
+
+  </style>
+
+  <!-- 
   
+-->
 </div>
 
 

@@ -1,5 +1,5 @@
-var svg = d3.select("#svg_graph").attr("transform", "translate(-410,27)"),
-width = 1485,
+var svg = d3.select("#svg_graph"),
+width = 1000,
 height = 600,
 color = d3.scaleOrdinal(d3.schemeCategory10);
 
@@ -94,11 +94,6 @@ $( "#amount-Wrank" ).val($( "#slider-range-Wrank" ).slider( "values", 0 ) +
   " - " + $( "#slider-range-Wrank" ).slider( "values", 1 ) );
 } );
 
-var d = document.getElementById('WRank');
-d.style.position = "absolute";
-d.style.left = 225+'px';
-d.style.top = 688+'px';
-d.style.width=980+'px';
 
 
 /////// SLIDER SIZE NODES AND LINKS ////////
@@ -123,10 +118,6 @@ $( "#amount-NodeSize" ).val( $( "#slider-range-NodeSize" ).slider( "values", 0 )
 " - " + $( "#slider-range-NodeSize" ).slider( "values", 1 ) );
 } );
 
-var d = document.getElementById('NodeSize');
-d.style.position = "absolute";
-d.style.left = 1250+'px';
-d.style.top = 480+'px';
 
 
 var minLinkwidth = 3; //min width of link
@@ -149,10 +140,6 @@ $( "#amount-EdgeSize" ).val( $( "#slider-range-EdgeSize" ).slider( "values", 0 )
 " - " + $( "#slider-range-EdgeSize" ).slider( "values", 1 ) );
 } );
 
-var d = document.getElementById('EdgeSize');
-d.style.position = "absolute";
-d.style.left = 1330+'px';
-d.style.top = 480+'px';
 
 
 /////// GRAPH ////////
