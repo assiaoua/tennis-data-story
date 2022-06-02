@@ -8,7 +8,15 @@ title: Graph
 <link rel="stylesheet" href="assets/tab1_network_site/lib/jquery.dataTables.min.css">
 
 
-<h1 style="margin:64px">Tennis Players Graph</h1>
+<div class="row">
+  <div class="col-md-10">
+    <h1 style="margin:64px">Tennis Players Graph</h1>  
+  </div>
+  <div class="col-md-2">
+    <button id="opener" style="display: inline; margin:64px">Tutorial</button>
+  </div>
+
+</div>
 
 <div id="dialog" title="Graph tutorial" class="container">
   <p>
@@ -36,37 +44,36 @@ title: Graph
     </ul>
   </p>
 </div>
-<button id="opener" style="position: absolute; left: 50vw; top: 25vh">Tutorial</button>
    
 
 <div class="container">
   
   <div class="row">
     
-    <div class="col">
-      <svg width="1000" height="600" id="svg_graph">
+    <div class="col-md-11">
+      <svg width="900" height="690" id="svg_graph">
         <text width="13.89" height="13.89" x="0" y="551">Year:</text>
       </svg>
     </div>
     
-    <div class="col">
+    <div class="col-md-1 text-end">
       
       <div id="NodeSize">
         <p>
-          <label for="amount-NodeSize">Node size</label>
+          <label for="amount-NodeSize" style="text-align: center;">Node size</label>
           <br>
           <input type="text" id="amount-NodeSize" readonly style="border:0; color:#F55A00; font-weight:bold;">
         </p>
-        <div id="slider-range-NodeSize" style="height:180px;"></div>
+        <div id="slider-range-NodeSize" style="height:180px; margin: auto !important;"></div>
       </div>
 
       <div id="EdgeSize">
         <p>
-          <label for="amount-EdgeSize">Edge size</label>
+          <label for="amount-EdgeSize" style="margin-top: 10px; text-align: center;">Edge size</label>
           <br>
           <input type="text" id="amount-EdgeSize" readonly style="border:0; color:#F55A00; font-weight:bold;">
         </p>
-        <div id="slider-range-EdgeSize" style="height:180px;"></div>
+        <div id="slider-range-EdgeSize" style="height:180px; margin: auto !important;"></div>
       </div> 
 
     </div>
@@ -95,7 +102,7 @@ title: Graph
 </div>
 
 <div class="container" style="margin:15px">
-  <div id="PlayersComparison" style="width: 1600px">
+  <div id="PlayersComparison">
     <div class="row">
       <div class="col">
       </div>
@@ -169,9 +176,3 @@ title: Graph
 </script>
 -->
 
-
-<style>
-  .wrapper {
-      max-width: none; !important
-  }
-</style>

@@ -6,6 +6,7 @@
   fill: none;
   stroke: #224559;
   cursor: pointer;
+  opacity: 0.1;
 }
 
 .ticks {
@@ -47,7 +48,6 @@
   position:relative;
 }
 .range-sliderR:before {
-  position: absolute;
   left: 0;
   fill: #fff;
   stroke: #000;
@@ -55,7 +55,6 @@
   stroke-width: 1.25px;
 }
 .range-sliderR:after {
-  position: absolute;
   right: 0;
   fill: #fff;
   stroke: #000;
@@ -63,3 +62,16 @@
   stroke-width: 1.25px;
 }
 
+
+.ui-widget {
+  font-family: Metropolis !important; 
+}
+
+.ui-widget b {
+  color: #e95420;
+}
+
+.ui-dialog-title {
+  font-weight: bold;
+  font-size: 20;
+}

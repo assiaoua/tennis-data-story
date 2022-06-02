@@ -1,6 +1,6 @@
 var svg = d3.select("#svg_graph"),
-width = 1000,
-height = 600,
+width = 900,
+height = 690,
 color = d3.scaleOrdinal(d3.schemeCategory10);
 
 
