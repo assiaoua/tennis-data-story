@@ -1,6 +1,6 @@
 var svg = d3.select("#svg_graph"),
 width = 1000,
-height = 600,
+height = 670,
 color = d3.scaleOrdinal(d3.schemeCategory10);
 
 
@@ -16,7 +16,7 @@ var x = d3.scaleLinear()
 .clamp(true);
 
 var slider = svg.append("g")
-.attr("transform", "translate(15,573)");
+.attr("transform", "translate(15,633)");
 
 slider.append("line")
 .attr("class", "track")
@@ -294,7 +294,7 @@ link.on('click',function(mylink){
   .attr("width", 50)
   .attr("height", 50)
   .attr('x', '0px')
-  .attr('y', '460px');
+  .attr('y', '510px');
 
   d3.select('#imagesVS_pc').append('svg')
     .attr("width", 500)
@@ -326,7 +326,7 @@ link.on('click',function(mylink){
     .attr("x", 70)
     .attr("y", 100)
     .attr("font-family", "sans-serif")
-    .style("font-size", "20px")
+    .style("font-size", "15px")
     .style("float", "left")
     .html('<br />' + mylink.source.id + ' (' + mylink.source.flag + ') <br />' + 'year_pro: ' + mylink.source.year_pro + '<br />' + 'weight: ' + mylink.source.weight + ' kg <br />' + 'height: ' + mylink.source.height + ' cm <br />' + mylink.source.hand);
 
@@ -334,7 +334,7 @@ link.on('click',function(mylink){
     .attr("x", 750)
     .attr("y", 100)
     .attr("font-family", "sans-serif")
-    .style("font-size", "20px")
+    .style("font-size", "15px")
     .style("float", "right")
     .html('<br />' + mylink.target.id + ' (' + mylink.target.flag + ') <br />' + 'year_pro: ' + mylink.target.year_pro + '<br />' + 'weight: ' + mylink.target.weight + ' kg <br />' + 'height: ' + mylink.target.height + ' cm <br />' + mylink.target.hand);
   
