@@ -75,10 +75,6 @@ text {font-family: Metropolis;
     font-size: 25px;
     color: #e95420;
   }
- 
-  .wrapper {
-      max-width: none; !important
-  }
 
   .svg-container {
     display: inline-block;
