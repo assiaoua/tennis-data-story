@@ -44,9 +44,6 @@
   stroke-width: 1.25px;
 }
 
-.range-sliderR {
-  position:relative;
-}
 .range-sliderR:before {
   left: 0;
   fill: #fff;
